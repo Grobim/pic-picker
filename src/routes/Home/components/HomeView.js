@@ -37,7 +37,7 @@ export class HomeView extends React.Component {
     } = this.props;
 
     if (userConnected) {
-      return <div>IMAGES ICC TROLOLOLOLO</div>;
+      return <h1>IMAGES ICI TROLOLOLOLO</h1>;
     }
   }
 
