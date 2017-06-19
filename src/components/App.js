@@ -2,18 +2,11 @@ import React from 'react';
 import { browserHistory, Router } from 'react-router';
 import { Provider } from 'react-redux';
 import PropTypes from 'prop-types';
-import NotesRef from 'firebaseRef/notes';
 
 class App extends React.Component {
   static propTypes = {
     store: PropTypes.object.isRequired,
     routes: PropTypes.object.isRequired,
-  }
-
-  componentDidMount () {
-    NotesRef.once('value').then(snap => {
-      console.log(snap.val());
-    });
   }
 
   shouldComponentUpdate () {

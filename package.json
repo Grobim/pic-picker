@@ -25,6 +25,7 @@
     "elo-rank": "^1.0.3",
     "express": "^4.14.0",
     "firebase": "^4.1.2",
+    "lodash": "^4.17.4",
     "object-assign": "^4.1.1",
     "promise": "^7.1.1",
     "prop-types": "^15.5.10",

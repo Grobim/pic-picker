@@ -14,10 +14,7 @@ export const connection = () => {
 
     getFirebaseAuth().signInWithPopup(getGoogleProvider()).then((result) => {
       dispatch(connected(result));
-    }, (error) => {
-      dispatch(disconnected());
-    })
-    .catch((error) => {
+    }, () => {
       dispatch(disconnected());
     });
   };

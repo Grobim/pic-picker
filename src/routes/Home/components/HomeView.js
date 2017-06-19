@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './HomeView.scss';
 
+import PicPickerContainer from 'containers/PicPickerContainer';
+
 export class HomeView extends React.Component {
   static propTypes = {
     connect: PropTypes.func.isRequired,
@@ -37,7 +39,7 @@ export class HomeView extends React.Component {
     } = this.props;
 
     if (userConnected) {
-      return <h1>IMAGES ICI TROLOLOLOLO</h1>;
+      return <PicPickerContainer />;
     }
   }
 

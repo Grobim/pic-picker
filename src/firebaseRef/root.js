@@ -11,7 +11,7 @@ const initFirebase = () => {
     authDomain: 'pic-picker.firebaseapp.com',
     databaseURL: 'https://pic-picker.firebaseio.com',
     projectId: 'pic-picker',
-    storageBucket: '',
+    storageBucket: 'gs://pic-picker.appspot.com',
     messagingSenderId: '918516357382'
   });
   firebaseInitialized = true;
