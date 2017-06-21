@@ -5,6 +5,7 @@ export const RECEIVED_RAW_PICS = 'PICS_RECEIVED_RAW_PICS';
 export const PICKED_TWO_PICS = 'PICS_PICKED_TWO_PICS';
 
 export const STATE_FETCHING = 'FETCHING';
+export const STATE_RECEIVED = 'RECEIVED';
 
 const PIC_COUNT = 86;
 const PICS_PER_LINE = 6;
@@ -26,8 +27,6 @@ export const initImages = () => {
       getFirebaseStorageRef().ref('003.jpg').getDownloadURL()
     ]).then((urls) => {
       dispatch(receivedRawPics(urls));
-      return urls;
-    }).then(() => {
       dispatch(picTwoPics());
     });
   };
@@ -125,7 +124,8 @@ const ACTION_HANDLERS = {
   }),
   [RECEIVED_RAW_PICS] : (state, { payload }) => ({
     ...state,
-    urls : payload
+    state : STATE_RECEIVED,
+    urls  : payload
   }),
   [PICKED_TWO_PICS] : (state, { payload }) => ({
     ...state,
@@ -134,7 +134,7 @@ const ACTION_HANDLERS = {
 };
 
 const initialState = {};
-export default function userReducer (state = initialState, action) {
+export default function picsReducer (state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type];
 
   return handler ? handler(state, action) : state;

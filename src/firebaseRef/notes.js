@@ -1,5 +1,5 @@
 import { getFirebaseRef } from './index';
 
-const NotesRef = getFirebaseRef().ref('notes');
+export const NotesRef = getFirebaseRef().ref('notes');
 
 export default NotesRef;
