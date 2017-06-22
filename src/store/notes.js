@@ -1,5 +1,23 @@
 import { NotesRef } from 'firebaseRef';
-import EloRank from 'elo-rank';
+class EloRank {
+  constructor(k) {
+    this.k = k || 32;
+  }
+
+  setKFactor(k) {
+    this.k = k;
+  }
+  getKFactor() {
+    return this.k;
+  }
+
+  getExpected(a, b) {
+    return 1/(1+Math.pow(10,((b-a)/400)));
+  }
+  updateRating(expected, actual, current) {
+    return Math.round(current+ this.k*(actual-expected));
+  }
+}
 
 export const FETCHING = 'NOTES_FETCHING';
 export const RECEIVED = 'NOTES_RECEIVED';
