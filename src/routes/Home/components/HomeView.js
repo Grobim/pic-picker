@@ -11,7 +11,7 @@ export class HomeView extends React.Component {
     userConnected: PropTypes.bool.isRequired
   }
 
-  getConnectionButton () {
+  get connectionButton () {
     const {
       userConnected,
       connect,
@@ -32,8 +32,23 @@ export class HomeView extends React.Component {
       );
     }
   }
+ 
+  get resultsButton () {
+    if (this.props.userConnected) {
+      return (
+        <button className='btn' onClick={this.goToResults}>
+          Go To Results
+        </button>
+      );
+    }
+  }
 
-  getImagePicker () {
+  goToResults () {
+    this.props.router.push('results');
+  }
+  goToResults = this.goToResults.bind(this);
+
+  get imagePicker () {
     const {
       userConnected
     } = this.props;
@@ -47,8 +62,9 @@ export class HomeView extends React.Component {
     return (
       <div>
         <h4>Welcome!</h4>
-        {this.getConnectionButton()}
-        {this.getImagePicker()}
+        {this.connectionButton}
+        {this.resultsButton}
+        {this.imagePicker}
       </div>
     );
   };

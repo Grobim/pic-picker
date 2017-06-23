@@ -101,7 +101,7 @@ const ACTION_HANDLERS = {
 };
 
 const initialState = {
-    notes : {}
+    notes : []
 };
 export default function notesReducer (state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type];

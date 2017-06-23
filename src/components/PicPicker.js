@@ -15,7 +15,9 @@ export default class PicPicker extends Component {
 
   componentDidMount () {
     this.props.initImages();
-    this.props.initNotes();
+    if (!this.props.canVote) {
+      this.props.initNotes();
+    }
   }
 
   get picSelector () {
@@ -41,10 +43,14 @@ export default class PicPicker extends Component {
     } = this.props;
 
     if (firstPic) {
-      return <div style={firstPic.imgStyle} onClick={() => {
-          pickFirstPic();
-          picTwoPics();
-        }} />;
+      const style = {
+        ...firstPic.imgStyle,
+        cursor: 'pointer'
+      };
+      return <div style={style} onClick={() => {
+        pickFirstPic();
+        picTwoPics();
+      }} />;
     }
   }
 
@@ -56,7 +62,11 @@ export default class PicPicker extends Component {
     } = this.props;
 
     if (secondPic) {
-      return <div style={secondPic.imgStyle} onClick={() => {
+      const style = {
+        ...secondPic.imgStyle,
+        cursor: 'pointer'
+      };
+      return <div style={style} onClick={() => {
         pickSecondPic();
         picTwoPics();
       }} />;

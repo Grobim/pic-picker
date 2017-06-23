@@ -8,9 +8,9 @@ export const STATE_FETCHING = 'FETCHING';
 export const STATE_RECEIVED = 'RECEIVED';
 
 const PIC_COUNT = 86;
-const PICS_PER_LINE = 6;
+export const PICS_PER_LINE = 6;
 const PICS_PER_COLUMN = 5;
-const PICS_PER_FILE = PICS_PER_LINE * PICS_PER_COLUMN;
+export const PICS_PER_FILE = PICS_PER_LINE * PICS_PER_COLUMN;
 const PIC_HEIGHT = 600;
 const PIC_WIDTH = 400;
 const LANDSCAPE_PICS = [
